@@ -1,4 +1,4 @@
----
+Adam Nur
 title: "In Class Lab - DIY Functions"
 author: "Dr. Shoemaker"
 date: "DATA 2401"
@@ -16,6 +16,12 @@ The questions from your notes today are below, please copy your answers them her
 1. Write your own function that takes the temperature in Fahrenheit as an argument and returns the Celcius equivalent. 
 
 ```{R}
+f_to_c <- function(fahrenheit) {
+  celsius <- (fahrenheit - 32) * 5/9
+  return(celsius)
+}
+
+f_to_c(100)
 
 
 ```
@@ -24,7 +30,14 @@ The questions from your notes today are below, please copy your answers them her
 
 
 ```{r}
+convert_temp_distance <- function(fahrenheit, feet) {
+  celsius <- (fahrenheit - 32) * 5/9
+  meters <- feet * 0.3048
+  return(c(Celsius = celsius, Meters = meters))
+}
 
+
+convert_temp_distance(100, 50)  
 
 ```
 
@@ -32,6 +45,20 @@ The questions from your notes today are below, please copy your answers them her
 3. Write a function that prints out a statement of whether the number passed as an argument is positive, negative or 0. 
 
 ```{R}
+check_number <- function(num) {
+  if (num > 0) {
+    print("The number is positive.")
+  } else if (num < 0) {
+    print("The number is negative.")
+  } else {
+    print("The number is zero.")
+  }
+}
+
+
+check_number(-5) 
+check_number(10)  
+check_number(0)   
 
 
 ```
@@ -40,6 +67,16 @@ The questions from your notes today are below, please copy your answers them her
    + Don't use `abs()`. Use the flow from problem 1 and multiply by negative one as necessary. 
    
 ```{r}
+absolute_value <- function(num) {
+  if (num < 0) {
+    return(-num)
+  } else {
+    return(num)
+  }
+}
+
+absolute_value(-10)  
+absolute_value(5)    
 
 
 ```
@@ -48,6 +85,22 @@ The questions from your notes today are below, please copy your answers them her
    + There are functions that check and return T/F: `is.numeric()` or `is.character()` would be relevant here
    
 ```{r}
+absolute_value_safe <- function(num) {
+  if (!is.numeric(num)) {
+    return("Please pass a numerical value to this function")
+  }
+  
+  if (num < 0) {
+    return(-num)
+  } else {
+    return(num)
+  }
+}
+
+
+absolute_value_safe(-10)    
+absolute_value_safe(5)       
+absolute_value_safe("hello") 
 
 
 
@@ -55,6 +108,7 @@ The questions from your notes today are below, please copy your answers them her
    
    
 
+}
 
 
 
